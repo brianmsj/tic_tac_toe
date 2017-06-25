@@ -1,0 +1,29 @@
+.square {
+  display: inline-block;
+  border: 1px solid black;
+  height: 150px;
+  width: 150px;
+}
+.board {
+  position: absolute;
+  top: 200px;
+  left: 30%;
+}
+main {
+  position: relative;
+}
+
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+.white {
+  background-color: white;
+}
+.reset {
+  position: absolute;
+  top: 700px;
+  left: 50%;
+}

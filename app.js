@@ -1,7 +1,9 @@
 
 var state = {
 board: [0,0,0,0,0,0,0,0,0],
-turn: 0
+turn: 0,
+winConditions: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]],
+winner: ""
 }
 
 function changeTurns(state) {
@@ -20,6 +22,43 @@ function flipBoard(state,value) {
     state.board[value] = 2
   }
 }
+function checkWinner(state) {
+  state.winConditions.forEach(function(array) {
+    if (winnerOne(array)) {
+      state.winner = "Player 1 Won!";
+    } else if (winnerTwo(array)) {
+      state.winner = "Player 2 Won!";
+    }
+  });
+}
+function winnerOne(array) {
+  var count = 0;
+  var hello = array.forEach(function(gridNumber) {
+    if (state.board[gridNumber - 1] === 1) {
+      count += 1;
+    }
+  });
+
+  if (count === 3) {
+      return true;
+    } else {
+      return false;
+    }
+}
+function winnerTwo(array) {
+  var count = 0;
+  var hello = array.forEach(function(gridNumber) {
+    if (state.board[gridNumber - 1] === 2) {
+      count += 1;
+    }
+  });
+
+  if (count === 3) {
+      return true;
+    } else {
+      return false;
+    }
+}
 
 
 function eventListeners() {
@@ -30,6 +69,7 @@ function eventListeners() {
      let index = $(event.currentTarget).attr('value')
      flipBoard(state, index)
      changeTurns(state)
+     checkWinner(state)
      console.log(state)
    }
    else if(state.turn === 1) {
@@ -38,23 +78,9 @@ function eventListeners() {
      let index = $(event.currentTarget).attr('value')
      flipBoard(state, index)
      changeTurns(state)
+     checkWinner(state)
      console.log(state)
    }
  })
-
-
-// if(state.turn === 0) {
-// $('.square').click(function(event) {
-//   $(event.currentTarget).addClass('red')
-//   changeTurns(state)
-// })
-// }
-//
-// else if(state.turn === 1) {
-//   $('.square').click(function(event) {
-//   $(event.currentTarget).addClass('blue')
-//   changeTurns(state)
-// })
-// }
 
 }$(eventListeners)

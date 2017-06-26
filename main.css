@@ -1,18 +1,24 @@
+html {
+  background-color:#262626;
+}
 .square {
   display: inline-block;
   border: 1px solid black;
   height: 150px;
   width: 150px;
+  border-radius: 15px;
 }
 .board {
-  position: absolute;
-  top: 200px;
-  left: 30%;
-}
-main {
-  position: relative;
+  width: 465px;
+  height: 464px;
+  margin: auto;
+  margin-top: 200px;
+  background-color: #ff3399;
 }
 
+.main-container {
+ width: 100%;
+}
 .red {
   background-color: red;
 }
@@ -23,7 +29,5 @@ main {
   background-color: white;
 }
 .reset {
-  position: absolute;
-  top: 700px;
-  left: 50%;
+  margin: auto;
 }

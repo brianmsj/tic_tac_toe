@@ -1,5 +1,5 @@
 
-var state = {
+const state = {
 board: [0,0,0,0,0,0,0,0,0],
 turn: 0,
 winConditions: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]],
@@ -25,9 +25,9 @@ function flipBoard(state,value) {
 function checkWinner(state) {
   state.winConditions.forEach(function(array) {
     if (winnerOne(array)) {
-      state.winner = "Player 1 Won!";
+      state.winner = "X Wins!";
     } else if (winnerTwo(array)) {
-      state.winner = "Player 2 Won!";
+      state.winner = "O Wins!";
     }
   });
 }
@@ -59,6 +59,19 @@ function winnerTwo(array) {
       return false;
     }
 }
+function displayWinner(state) {
+  if(state.winner !== "") {
+  $('.playerWins').append('<h2 class=statewinner>' + state.winner + '</h2>')
+  }
+}
+function resetGame(state) {
+  state.board = [0,0,0,0,0,0,0,0,0],
+  state.turn = 0,
+  state.winner = ""
+  $('.square').removeClass('red')
+  $('.square').removeClass('blue')
+  $('.statewinner').remove()
+}
 
 
 function eventListeners() {
@@ -70,6 +83,7 @@ function eventListeners() {
      flipBoard(state, index)
      changeTurns(state)
      checkWinner(state)
+     displayWinner(state)
      console.log(state)
    }
    else if(state.turn === 1) {
@@ -79,8 +93,12 @@ function eventListeners() {
      flipBoard(state, index)
      changeTurns(state)
      checkWinner(state)
+     displayWinner(state)
      console.log(state)
    }
+ })
+ $('.reset').click(function(event) {
+   resetGame(state)
  })
 
 }$(eventListeners)

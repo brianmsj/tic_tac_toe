@@ -6,10 +6,13 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
 </head>
 <body>
 <main>
+<h1 class='main-title'>Tic Tac Toe</h1>
 <div class='main-container'>
+  <div class='board-container'>
   <div class='board'>
    <div class='row'>
     <div id='square1' value='0' class='square white'></div>
@@ -27,6 +30,7 @@
     <div id='square9' value='8' class='square white'></div>
    </div>
  </div>
+ </div>
 </div>
  <button class='reset'>Reset Game</button>
  <div class='playerWins'></div>
@@ -35,5 +39,7 @@
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
     <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 </body>
 </html>

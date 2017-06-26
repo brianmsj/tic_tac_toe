@@ -25,9 +25,9 @@ function flipBoard(state,value) {
 function checkWinner(state) {
   state.winConditions.forEach(function(array) {
     if (winnerOne(array)) {
-      state.winner = "X Wins!";
+      state.winner = "X Wins !";
     } else if (winnerTwo(array)) {
-      state.winner = "O Wins!";
+      state.winner = "O Wins !";
     }
   });
 }
@@ -84,7 +84,6 @@ function eventListeners() {
      changeTurns(state)
      checkWinner(state)
      displayWinner(state)
-     console.log(state)
    }
    else if(state.turn === 1) {
      $(event.currentTarget).removeClass('white')
@@ -94,11 +93,11 @@ function eventListeners() {
      changeTurns(state)
      checkWinner(state)
      displayWinner(state)
-     console.log(state)
    }
  })
  $('.reset').click(function(event) {
    resetGame(state)
+   $('.square').addClass('white')
  })
 
 }$(eventListeners)

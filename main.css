@@ -1,5 +1,5 @@
 html {
-  background-color:#262626;
+  background-color:#262728;
 }
 .square {
   display: inline-block;
@@ -7,17 +7,48 @@ html {
   height: 150px;
   width: 150px;
   border-radius: 15px;
+  cursor: pointer;
 }
+.square:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
 .board {
   width: 465px;
   height: 464px;
   margin: auto;
-  margin-top: 200px;
-  background-color: #ff3399;
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  background-color: #3b3d3f;
+}
+.main-title {
+  text-align: center;
+  font-family: 'Athiti', sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 80px;
 }
 
 .main-container {
  width: 100%;
+}
+.statewinner {
+  color: white;
+  font-family: 'Athiti', sans-serif;
+  font-weight: bold;
+  font-size: 60px;
+  text-align: center;
+}
+.board-container {
+  background-color:#3b3d3f;
+  width: 550px;
+  height: 550px;
+  margin: auto;
+  position: relative;
+  border-radius: 15px;
+  margin-top: 70px;
 }
 .red {
   background-color: red;
@@ -26,8 +57,7 @@ html {
   background-color: blue;
 }
 .white {
-  background-color: white;
+  background-color: #fff;
 }
 .reset {
-  margin: auto;
 }
